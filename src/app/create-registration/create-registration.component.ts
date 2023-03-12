@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {ApiService} from "../services/api.service";
+import {NgToastService} from "ng-angular-popup";
+import {ActivatedRoute} from "@angular/router";
+import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-create-registration',
@@ -20,9 +24,13 @@ export class CreateRegistrationComponent implements OnInit{
   ];
 
 public registerForm !: FormGroup;
+public userIdToUpdate!:number;
 
-constructor( private fb : FormBuilder){}
 
+constructor( private fb : FormBuilder,
+             private activatedRoute:ActivatedRoute,
+             private api:ApiService,
+             private toastService:NgToastService){}
 
   ngOnInit(): void {
     this.registerForm=this.fb.group({
@@ -42,21 +50,36 @@ constructor( private fb : FormBuilder){}
       enquiryDate:[''],
     })
 
-    this.registerForm.controls['height'].valueChanges.subscribe(res=>{
+    this.registerForm.controls['height'].valueChanges.subscribe(res=>{//res is response
       this.calculateBmi(res);
+    })
+
+    this.activatedRoute.params.subscribe(val=>{
+      this.userIdToUpdate=val['id'];
+      console.log("user ID :",this.userIdToUpdate)
+      this.api.getRegisteredUserId(this.userIdToUpdate)
+        .subscribe(res=>{
+          this.fillFormToUpdate(res);
+        })
     })
   }
 
 submit(){
-  console.log(this.registerForm.value);
+ // console.log(this.registerForm.value);
+
+  this.api.postRegistration(this.registerForm.value)
+          .subscribe(res=>{
+            this.toastService.success({detail:"Success",
+                                      summary:"Enquire  Added",duration:3000});
+            this.registerForm.reset();
+          });
 }
 
-calculateBmi(heightValue:number)
-{
+calculateBmi(heightValue:number) {
     const weight= this.registerForm.value.height;
     const height=heightValue;
 
-    const bmi=weight/height*height;
+    const bmi=weight/(height*height);
 
     this.registerForm.controls['bmi'].patchValue(bmi);
 
@@ -79,4 +102,26 @@ calculateBmi(heightValue:number)
         break;
     }
   }
+
+  fillFormToUpdate(user:User){
+
+    this.registerForm.setValue({
+        firstName: user.firstName,
+        lastName:user.lastName,
+        email:user.email,
+        mobile:user.mobile,
+        weight:user.weight,
+        height:user.height,
+        bmi:user.bmi,
+        bmiResult:user.bmiResult,
+        gender:user.gender,
+        requireTrainer:user.requireTrainer,
+        package:user.package,
+        important:user.important,
+        haveGymBefore:user.haveGymBefore,
+        enquiryDate:user.enquiryDate
+
+    });
+  }
 }
+

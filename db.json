@@ -1,0 +1,101 @@
+{
+  "enquiry": [
+    {
+      "firstName": "Htein",
+      "lastName": "Linn",
+      "email": "hteing",
+      "mobile": "06656",
+      "weight": 15,
+      "height": 25,
+      "bmi": 2,
+      "bmiResult": "Underweight",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Monthly",
+      "important": [
+        "Energy and Endurance",
+        "Building Lean Muscle",
+        "Healthier Digestive System"
+      ],
+      "haveGymBefore": "No",
+      "enquiryDate": "2023-03-11T17:30:00.000Z",
+      "id": 1
+    },
+    {
+      "firstName": "Jon",
+      "lastName": "Doe",
+      "email": "jon@gmail.com",
+      "mobile": "09255565",
+      "weight": 67,
+      "height": 1.5,
+      "bmi": 1,
+      "bmiResult": "Underweight",
+      "gender": null,
+      "requireTrainer": null,
+      "package": null,
+      "important": null,
+      "haveGymBefore": null,
+      "enquiryDate": null,
+      "id": 2
+    },
+    {
+      "firstName": "Thu",
+      "lastName": "ta",
+      "email": "thuta@gmial.com",
+      "mobile": "098555",
+      "weight": 67,
+      "height": 1.6,
+      "bmi": 0.39062499999999994,
+      "bmiResult": "Underweight",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Monthly",
+      "important": [
+        "Building Lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-03-11T17:30:00.000Z",
+      "id": 3
+    },
+    {
+      "firstName": "Chaw ",
+      "lastName": "Po",
+      "email": "chawpo@gmail.com",
+      "mobile": "055555",
+      "weight": 20,
+      "height": 2.6,
+      "bmi": 0.29585798816568043,
+      "bmiResult": "Underweight",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "",
+      "important": [
+        "Energy and Endurance",
+        "Building Lean Muscle",
+        "Healthier Digestive System"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-03-11T17:30:00.000Z",
+      "id": 4
+    },
+    {
+      "firstName": "Myat ",
+      "lastName": "Thida",
+      "email": "myat@gmail,om",
+      "mobile": "06666",
+      "weight": 25,
+      "height": 4,
+      "bmi": 0.1875,
+      "bmiResult": "Underweight",
+      "gender": "Female",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Sugar Carving Body"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-03-11T17:30:00.000Z",
+      "id": 5
+    }
+  ]
+}
