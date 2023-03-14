@@ -1,126 +1,16 @@
 {
   "enquiry": [
     {
-      "firstName": "Htein Htein",
-      "lastName": "Linn",
-      "email": "hteing@gmail.com",
-      "mobile": "0942283",
-      "weight": 15,
-      "height": 27,
-      "bmi": 0.0027434842249657062,
-      "bmiResult": "Underweight",
-      "gender": "Male",
-      "requireTrainer": "Yes",
-      "package": "Monthly",
-      "important": [
-        "Energy and Endurance",
-        "Building Lean Muscle",
-        "Healthier Digestive System"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "2023-03-11T17:30:00.000Z",
-      "id": 1
-    },
-    {
-      "firstName": "Jon",
-      "lastName": "Doe",
-      "email": "jon@gmail.com",
-      "mobile": "09255565",
-      "weight": 67,
-      "height": 1.5,
-      "bmi": 1,
-      "bmiResult": "Underweight",
-      "gender": "Male",
-      "requireTrainer": "No",
-      "package": "Quarterly",
-      "important": [
-        "Energy and Endurance",
-        "Building Lean Muscle",
-        "Healthier Digestive System"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "2023-03-09T17:30:00.000Z",
+      "name": "Htein Htein ",
+      "year": "2020",
+      "director": "Zin Yaw",
       "id": 2
     },
     {
-      "firstName": "Chaw ",
-      "lastName": "Po",
-      "email": "chawpo@gmail.com",
-      "mobile": "0955555",
-      "weight": 20,
-      "height": 2.6,
-      "bmi": 0.29585798816568043,
-      "bmiResult": "Underweight",
-      "gender": "Male",
-      "requireTrainer": "Yes",
-      "package": "Yearly",
-      "important": [
-        "Energy and Endurance",
-        "Building Lean Muscle",
-        "Healthier Digestive System"
-      ],
-      "haveGymBefore": "Yes",
-      "enquiryDate": "2023-03-11T17:30:00.000Z",
-      "id": 4
-    },
-    {
-      "firstName": "Thein",
-      "lastName": "Soung",
-      "email": "thien@gmail.com",
-      "mobile": "09253333",
-      "weight": 52,
-      "height": 1.5,
-      "bmi": 0.4444444444444444,
-      "bmiResult": "Underweight",
-      "gender": "Male",
-      "requireTrainer": "Yes",
-      "package": "Yearly",
-      "important": [
-        "Energy and Endurance",
-        "Healthier Digestive System",
-        "Fitness"
-      ],
-      "haveGymBefore": "",
-      "enquiryDate": "2023-03-11T17:30:00.000Z",
-      "id": 5
-    },
-    {
-      "firstName": "Aung ",
-      "lastName": "Aung",
-      "email": "aung@gmial.com",
-      "mobile": "0942555",
-      "weight": 25,
-      "height": 0.55,
-      "bmi": 1.652892561983471,
-      "bmiResult": "Underweight",
-      "gender": "Female",
-      "requireTrainer": "Yes",
-      "package": "Quarterly",
-      "important": "",
-      "haveGymBefore": "No",
-      "enquiryDate": "2023-03-08T17:30:00.000Z",
-      "id": 6
-    },
-    {
-      "firstName": "Zaw ",
-      "lastName": "Het",
-      "email": "zaw@gmail.com",
-      "mobile": "0932554",
-      "weight": 25,
-      "height": 3.5,
-      "bmi": 0.24489795918367346,
-      "bmiResult": "Underweight",
-      "gender": "Female",
-      "requireTrainer": "Yes",
-      "package": "Quarterly",
-      "important": [
-        "Healthier Digestive System",
-        "Sugar Carving Body",
-        "Fitness"
-      ],
-      "haveGymBefore": "No",
-      "enquiryDate": "2023-02-11T17:30:00.000Z",
-      "id": 7
+      "name": "Soe Soe",
+      "year": "2000",
+      "director": "Marlar",
+      "id": 3
     }
   ]
 }

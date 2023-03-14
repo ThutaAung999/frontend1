@@ -25,7 +25,7 @@ export class CreateRegistrationComponent implements OnInit{
 
 public registerForm !: FormGroup;
 public userIdToUpdate!:number;
-public isUpdateActive :boolean=false;
+public isUpdateActive:boolean=false;
 
 
 constructor( private fb : FormBuilder,
@@ -40,25 +40,11 @@ constructor( private fb : FormBuilder,
 
   ngOnInit(): void {
     this.registerForm=this.fb.group({
-      firstName:[''],
-      lastName:[''],
-      email:[''],
-      mobile:[''],
-      weight:[''],
-      height:[''],
-      bmi:[''],
-      bmiResult:[''],
-      gender:[''],
-      requireTrainer:[''],
-      package:[''],
-      important:[''],
-      haveGymBefore:[''],
-      enquiryDate:[''],
+      name:[''],
+      year:[''],
+      director:['']
     })
 
-    this.registerForm.controls['height'].valueChanges.subscribe(res=>{//res is response
-      this.calculateBmi(res);
-    })
 
     this.activatedRoute.params.subscribe(val=>{
       this.userIdToUpdate=val['id'];
@@ -94,56 +80,14 @@ update(){
     });
 }
 
-calculateBmi(heightValue:number) {
-    const weight= this.registerForm.value.height;
-    const height=heightValue;
-
-    const bmi=weight/(height*height);
-
-    this.registerForm.controls['bmi'].patchValue(bmi);
-
-
-    switch (true) {
-      case bmi<18.5:
-            this.registerForm.controls['bmiResult'].patchValue("Underweight");      
-        break;        
-        
-      case ( bmi>=18.5 && bmi<25):        
-            this.registerForm.controls['bmiResult'].patchValue("Underweight");      
-        break;  
-
-        case ( bmi>=25 && bmi<30):
-            this.registerForm.controls['bmiResult'].patchValue("Overweight");      
-        break;
-
-      default:
-          this.registerForm.controls['bmiResult'].patchValue("Obese");      
-        break;
-    }
-  }
 
   fillFormToUpdate(user:User){
 
     this.registerForm.setValue({
-        firstName: user.firstName,
-        lastName:user.lastName,
-        email:user.email,
-        mobile:user.mobile,
-        weight:user.weight,
-        height:user.height,
-        bmi:user.bmi,
-        bmiResult:user.bmiResult,
-        gender:user.gender,
-        requireTrainer:user.requireTrainer,
-        package:user.package,
-        important:user.important,
-        haveGymBefore:user.haveGymBefore,
-        enquiryDate:user.enquiryDate
-
+        name: user.name,
+        year:user.year,
+        director:user.director
     });
   }
-
-
-
 }
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 import{MatTableDataSource} from "@angular/material/table";
 import{MatSort} from "@angular/material/sort";
@@ -24,8 +24,14 @@ export class RegistrationListComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  displayedColumns:string[]=['id','firstName','lastName','email','mobile','bmiResult','gender','package','enquiryDate','action'];
+  displayedColumns:string[]=['id','name','year','director','action'];
 
+
+
+  /**************updated***********************/
+  @Output() nameClickEvent=new EventEmitter();
+
+  /**************updated***********************/
 
   constructor(private api:ApiService,
               private router:Router,
@@ -36,13 +42,13 @@ export class RegistrationListComponent implements OnInit{
     this.getUsers();
   }
 
+
   getUsers(){
     this.api.getRegisteredUser().subscribe(users=>{
         this.users=users;
         this.dataSource=new MatTableDataSource(this.users);
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort = this.sort;
-
     });
   }
 
@@ -74,5 +80,12 @@ export class RegistrationListComponent implements OnInit{
       }
       )
   }
+
+
+  /**************updated***********************/
+
+
+
+  /**************updated***********************/
 }
 
