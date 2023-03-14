@@ -7,6 +7,9 @@ import {ApiService} from "../services/api.service";
 import {User} from "../models/user.model";
 import {Router} from "@angular/router";
 
+import {NgConfirmService} from "ng-confirm-box";
+import {NgToastService} from "ng-angular-popup";
+
 @Component({
   selector: 'app-registration-list',
   templateUrl: './registration-list.component.html',
@@ -24,7 +27,10 @@ export class RegistrationListComponent implements OnInit{
   displayedColumns:string[]=['id','firstName','lastName','email','mobile','bmiResult','gender','package','enquiryDate','action'];
 
 
-  constructor(private api:ApiService,private router:Router){}
+  constructor(private api:ApiService,
+              private router:Router,
+              private confirm:NgConfirmService,
+              private toast:NgToastService){}
 
   ngOnInit(){
     this.getUsers();
@@ -51,6 +57,22 @@ export class RegistrationListComponent implements OnInit{
 
   edit(id:number){
     this.router.navigate(['update',id]);
+  }
+
+  delete(id:number){
+
+    this.confirm.showConfirm("Are you sure want to confirm?",
+      ()=>{
+        this.api.deleteRegistered(id)
+          .subscribe(response=>{
+            this.toast.success({detail:'SUCCESS',summary:'Delete Successfully',duration:3000});
+            this.getUsers();
+          })
+      },
+      ()=>{
+
+      }
+      )
   }
 }
 

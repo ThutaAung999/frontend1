@@ -24,9 +24,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from "@angular/material/chips";
 
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+
 
 
 @NgModule({
@@ -56,6 +60,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+
+    MatCardModule,
+    MatListModule,
+    MatChipsModule,
 
     NgToastModule,
     NgConfirmModule

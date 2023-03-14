@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ApiService} from "../services/api.service";
 import {NgToastService} from "ng-angular-popup";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../models/user.model";
 
 @Component({
@@ -25,12 +25,18 @@ export class CreateRegistrationComponent implements OnInit{
 
 public registerForm !: FormGroup;
 public userIdToUpdate!:number;
+public isUpdateActive :boolean=false;
 
 
 constructor( private fb : FormBuilder,
              private activatedRoute:ActivatedRoute,
              private api:ApiService,
-             private toastService:NgToastService){}
+             private toastService:NgToastService,
+             private router:Router){
+
+
+}
+
 
   ngOnInit(): void {
     this.registerForm=this.fb.group({
@@ -56,13 +62,15 @@ constructor( private fb : FormBuilder,
 
     this.activatedRoute.params.subscribe(val=>{
       this.userIdToUpdate=val['id'];
-      console.log("user ID :",this.userIdToUpdate)
+      console.log("user ID :",this.userIdToUpdate);
       this.api.getRegisteredUserId(this.userIdToUpdate)
         .subscribe(res=>{
+          this.isUpdateActive=true;
           this.fillFormToUpdate(res);
         })
     })
   }
+
 
 submit(){
  // console.log(this.registerForm.value);
@@ -73,6 +81,17 @@ submit(){
                                       summary:"Enquire  Added",duration:3000});
             this.registerForm.reset();
           });
+}
+
+update(){
+  this.api.updateRegisteredUser(this.registerForm.value,
+                                this.userIdToUpdate).subscribe(res=>{
+          this.toastService.success({detail:"Success",
+            summary:"Enquire Updated",duration:3000});
+      this.registerForm.reset();
+
+      this.router.navigate(['list']);
+    });
 }
 
 calculateBmi(heightValue:number) {
@@ -123,5 +142,8 @@ calculateBmi(heightValue:number) {
 
     });
   }
+
+
+
 }
 
