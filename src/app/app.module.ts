@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateRegistrationComponent } from './create-registration/create-registration.component';
 import { RegistrationListComponent } from './registration-list/registration-list.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MovieDetailComponent } from './user-detail/movie-detail.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { NgConfirmModule } from 'ng-confirm-box';
 
@@ -30,6 +30,7 @@ import {MatChipsModule} from "@angular/material/chips";
 
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { RegisterAndFilterComponent } from './register-and-filter/register-and-filter.component';
 
 
 
@@ -38,7 +39,8 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     CreateRegistrationComponent,
     RegistrationListComponent,
-    UserDetailComponent
+    MovieDetailComponent,
+    RegisterAndFilterComponent
   ],
   imports: [
     BrowserModule,

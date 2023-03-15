@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../models/user.model";
+
+import {Movie} from "../models/movie.model";
 
 
 
@@ -16,24 +17,24 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  postRegistration(registerObj:User){
-    return this.http.post<User>(`${this.baseUrl}`,registerObj)
+  NewMovie(newMovie:Movie){
+    return this.http.post<Movie>(`${this.baseUrl}`,newMovie)
   }
 
-  getRegisteredUser(){
-    return this.http.get<User[]>(`${this.baseUrl}`)
+  getAllMovie(){
+    return this.http.get<Movie[]>(`${this.baseUrl}`)
   }
 
-  updateRegisteredUser(registerObj:User , id:number){
+  updateMovie(registerObj:Movie , id:number){
 
-    return this.http.put<User>(`${this.baseUrl}/${id}`,registerObj);
+    return this.http.put<Movie>(`${this.baseUrl}/${id}`,registerObj);
   }
 
-  deleteRegistered(id:number){
-    return  this.http.delete<User>(`${this.baseUrl}/${id}`);
+  deleteMovie(id:number){
+    return  this.http.delete<Movie>(`${this.baseUrl}/${id}`);
   }
 
-  getRegisteredUserId(id:number){
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+  getRegisteredMovieId(id:number){
+    return this.http.get<Movie>(`${this.baseUrl}/${id}`);
   }
 }

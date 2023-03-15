@@ -3,7 +3,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ApiService} from "../services/api.service";
 import {NgToastService} from "ng-angular-popup";
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../models/user.model";
+
+import {Movie} from "../models/movie.model";
 
 @Component({
   selector: 'app-create-registration',
@@ -24,7 +25,7 @@ export class CreateRegistrationComponent implements OnInit{
   ];
 
 public registerForm !: FormGroup;
-public userIdToUpdate!:number;
+public movieIdToUpdate!:number;
 public isUpdateActive:boolean=false;
 
 
@@ -47,9 +48,9 @@ constructor( private fb : FormBuilder,
 
 
     this.activatedRoute.params.subscribe(val=>{
-      this.userIdToUpdate=val['id'];
-      console.log("user ID :",this.userIdToUpdate);
-      this.api.getRegisteredUserId(this.userIdToUpdate)
+      this.movieIdToUpdate=val['id'];
+      console.log("movie ID :",this.movieIdToUpdate);
+      this.api.getRegisteredMovieId(this.movieIdToUpdate)
         .subscribe(res=>{
           this.isUpdateActive=true;
           this.fillFormToUpdate(res);
@@ -61,19 +62,19 @@ constructor( private fb : FormBuilder,
 submit(){
  // console.log(this.registerForm.value);
 
-  this.api.postRegistration(this.registerForm.value)
+  this.api.NewMovie(this.registerForm.value)
           .subscribe(res=>{
             this.toastService.success({detail:"Success",
-                                      summary:"Enquire  Added",duration:3000});
+                                      summary:"Movie  Added",duration:3000});
             this.registerForm.reset();
           });
 }
 
 update(){
-  this.api.updateRegisteredUser(this.registerForm.value,
-                                this.userIdToUpdate).subscribe(res=>{
+  this.api.updateMovie(this.registerForm.value,
+                                this.movieIdToUpdate).subscribe(res=>{
           this.toastService.success({detail:"Success",
-            summary:"Enquire Updated",duration:3000});
+            summary:"Movie Updated",duration:3000});
       this.registerForm.reset();
 
       this.router.navigate(['list']);
@@ -81,12 +82,12 @@ update(){
 }
 
 
-  fillFormToUpdate(user:User){
+  fillFormToUpdate(movie:Movie){
 
     this.registerForm.setValue({
-        name: user.name,
-        year:user.year,
-        director:user.director
+        name: movie.name,
+        year:movie.year,
+        director:movie.director
     });
   }
 }

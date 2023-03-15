@@ -4,11 +4,12 @@ import{MatTableDataSource} from "@angular/material/table";
 import{MatSort} from "@angular/material/sort";
 import{MatPaginator} from "@angular/material/paginator";
 import {ApiService} from "../services/api.service";
-import {User} from "../models/user.model";
+
 import {Router} from "@angular/router";
 
 import {NgConfirmService} from "ng-confirm-box";
 import {NgToastService} from "ng-angular-popup";
+import {Movie} from "../models/movie.model";
 
 @Component({
   selector: 'app-registration-list',
@@ -17,8 +18,8 @@ import {NgToastService} from "ng-angular-popup";
 })
 export class RegistrationListComponent implements OnInit{
 
-  public dataSource!: MatTableDataSource<User>;
-  public users!:User[];
+  public dataSource!: MatTableDataSource<Movie>;
+  public movies!:Movie[];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -39,18 +40,19 @@ export class RegistrationListComponent implements OnInit{
               private toast:NgToastService){}
 
   ngOnInit(){
-    this.getUsers();
+    this.getMovies();
   }
 
 
-  getUsers(){
-    this.api.getRegisteredUser().subscribe(users=>{
-        this.users=users;
-        this.dataSource=new MatTableDataSource(this.users);
+  getMovies(){
+    this.api.getAllMovie().subscribe(movies=>{
+        this.movies=movies;
+        this.dataSource=new MatTableDataSource(this.movies);
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort = this.sort;
     });
   }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -69,10 +71,10 @@ export class RegistrationListComponent implements OnInit{
 
     this.confirm.showConfirm("Are you sure want to confirm?",
       ()=>{
-        this.api.deleteRegistered(id)
+        this.api.deleteMovie(id)
           .subscribe(response=>{
             this.toast.success({detail:'SUCCESS',summary:'Delete Successfully',duration:3000});
-            this.getUsers();
+            this.getMovies();
           })
       },
       ()=>{

@@ -1,7 +1,7 @@
-<mat-card *ngIf="userDetail" class="example-card">
+<mat-card *ngIf="movieDetail" class="example-card">
   <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{userDetail.name}}</mat-card-title>
+      <mat-card-title>{{movieDetail.name}}</mat-card-title>
 
   </mat-card-header>
 
@@ -11,14 +11,14 @@
         <mat-list-item>
           <div matLine>
               Year :
-                <button mat-button>{{userDetail.year}}</button>
+                <button mat-button>{{movieDetail.year}}</button>
           </div>
         </mat-list-item>
 
       <mat-list-item>
         <div matLine>
           Director :
-          <button mat-button>{{userDetail.director}}</button>
+          <button mat-button>{{movieDetail.director}}</button>
         </div>
       </mat-list-item>
 

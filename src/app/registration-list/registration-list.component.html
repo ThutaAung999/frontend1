@@ -6,9 +6,11 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input  matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
 </div>
+
+
 
 <div class="mat-ele vation-z8">
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
@@ -57,6 +59,6 @@
     </tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of movies"></mat-paginator>
 </div>
 
