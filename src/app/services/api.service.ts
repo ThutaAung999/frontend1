@@ -11,9 +11,9 @@ import {Movie} from "../models/movie.model";
 export class ApiService {
 
 
-/*  private baseUrl:string='http://localhost:3000/enquiry'*/
+  private baseUrl:string='http://localhost:3000/movies'
 
-  private baseUrl:string='http://localhost:8080/api/movies'
+  /*private baseUrl:string='http://localhost:8080/api/movies'*/
 
   constructor(private http:HttpClient) { }
 

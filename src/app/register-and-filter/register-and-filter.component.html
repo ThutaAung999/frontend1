@@ -1,11 +1,13 @@
 <div class="d-flex justify-content-between">
   <button routerLink="/register"  mat-raised-button  color="accent" >
     <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    Back to Registration
+    Back to New Movie
   </button>
 
   <mat-form-field appearance="outline">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput
+           (keyup)="applyFilter(inputfilter.value)"
+           placeholder="Ex. Mia" #inputfilter>
   </mat-form-field>
 </div>

@@ -1,15 +1,21 @@
 {
-  "enquiry": [
+  "movies": [
     {
-      "name": "Htein Htein ",
-      "year": "2020",
-      "director": "Zin Yaw",
+      "name": "Game of Throme",
+      "year": "2015",
+      "director": "Baw Gyi",
+      "id": 1
+    },
+    {
+      "name": "Titanic",
+      "year": "1990",
+      "director": "Jame Cameron",
       "id": 2
     },
     {
-      "name": "Soe Soe",
-      "year": "2000",
-      "director": "Marlar",
+      "name": "The ring of the world",
+      "year": "2015",
+      "director": "Thormat",
       "id": 3
     }
   ]

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 import{MatTableDataSource} from "@angular/material/table";
 import{MatSort} from "@angular/material/sort";
@@ -18,6 +18,9 @@ import {Movie} from "../models/movie.model";
 })
 export class RegistrationListComponent implements OnInit{
 
+
+  inputValue:any;
+
   public dataSource!: MatTableDataSource<Movie>;
   public movies!:Movie[];
 
@@ -30,8 +33,10 @@ export class RegistrationListComponent implements OnInit{
 
 
   /**************updated***********************/
-  @Output() nameClickEvent=new EventEmitter();
 
+  bindInputValue(inputVal:any){
+    this.inputValue=inputVal;
+  }
   /**************updated***********************/
 
   constructor(private api:ApiService,
@@ -53,8 +58,8 @@ export class RegistrationListComponent implements OnInit{
     });
   }
 
-
   applyFilter(event: Event) {
+
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

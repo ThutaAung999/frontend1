@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input, Output} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Movie} from "../models/movie.model";
+import {EventEmitter} from "@angular/core";
 
 @Component({
   selector: 'app-register-and-filter',
@@ -9,14 +10,15 @@ import {Movie} from "../models/movie.model";
 })
 export class RegisterAndFilterComponent {
 
-  public dataSource!: MatTableDataSource<Movie>;
+  inputValue:any;
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  @Input() dataSource!: MatTableDataSource<Movie>;
+  @Output() filterEvent=new EventEmitter<any>();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    applyFilter(inputVal:any){
+      this.inputValue=inputVal;
+      this.filterEvent.emit(this.inputValue);
     }
+
   }
-}
+
