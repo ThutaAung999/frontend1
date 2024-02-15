@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateRegistrationComponent } from './create-registration/create-registration.component';
-import { RegistrationListComponent } from './registration-list/registration-list.component';
+import { CreateUpdateMovieComponent } from './create-update-movie/create-update-movie.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailComponent } from './user-detail/movie-detail.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { NgConfirmModule } from 'ng-confirm-box';
@@ -37,8 +37,8 @@ import { RegisterAndFilterComponent } from './register-and-filter/register-and-f
 @NgModule({
   declarations: [
     AppComponent,
-    CreateRegistrationComponent,
-    RegistrationListComponent,
+    CreateUpdateMovieComponent,
+    MovieListComponent,
     MovieDetailComponent,
     RegisterAndFilterComponent
   ],
@@ -48,7 +48,7 @@ import { RegisterAndFilterComponent } from './register-and-filter/register-and-f
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

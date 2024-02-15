@@ -12,11 +12,11 @@ import {NgToastService} from "ng-angular-popup";
 import {Movie} from "../models/movie.model";
 
 @Component({
-  selector: 'app-registration-list',
-  templateUrl: './registration-list.component.html',
-  styleUrls: ['./registration-list.component.scss']
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.scss']
 })
-export class RegistrationListComponent implements OnInit{
+export class MovieListComponent implements OnInit{
 
 
   inputValue:any;
@@ -47,6 +47,7 @@ export class RegistrationListComponent implements OnInit{
   ngOnInit(){
     this.getMovies();
   }
+
 
 
   getMovies(){

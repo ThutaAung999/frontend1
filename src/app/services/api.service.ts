@@ -4,16 +4,13 @@ import {HttpClient} from "@angular/common/http";
 import {Movie} from "../models/movie.model";
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
 
-  private baseUrl:string='http://localhost:3000/movies'
-
-  /*private baseUrl:string='http://localhost:8080/api/movies'*/
+  private baseUrl:string='http://localhost:8080/api/movies'
 
   constructor(private http:HttpClient) { }
 

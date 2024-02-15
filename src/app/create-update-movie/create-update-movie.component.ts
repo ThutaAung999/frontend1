@@ -7,24 +7,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Movie} from "../models/movie.model";
 
 @Component({
-  selector: 'app-create-registration',
-  templateUrl: './create-registration.component.html',
-  styleUrls: ['./create-registration.component.scss']
+  selector: 'app-create-update-movie',
+  templateUrl: './create-update-movie.component.html',
+  styleUrls: ['./create-update-movie.component.scss']
 })
-export class CreateRegistrationComponent implements OnInit{
-  public packages:string[]=["Monthly","Quarterly","Yearly"];
-  public genders:string[]=["Male","Female"];
-  public importantList:string[]=[
+export class CreateUpdateMovieComponent implements OnInit{
 
-    'Toxix Fax reduction',
-    'Energy and Endurance',
-    'Building Lean Muscle',
-    'Healthier Digestive System',
-    'Sugar Carving Body',
-    'Fitness'
-  ];
 
-public registerForm !: FormGroup;
+public movieForm !: FormGroup;
 public movieIdToUpdate!:number;
 public isUpdateActive:boolean=false;
 
@@ -40,7 +30,7 @@ constructor( private fb : FormBuilder,
 
 
   ngOnInit(): void {
-    this.registerForm=this.fb.group({
+    this.movieForm=this.fb.group({
       name:[''],
       year:[''],
       director:['']
@@ -60,22 +50,22 @@ constructor( private fb : FormBuilder,
 
 
 submit(){
- // console.log(this.registerForm.value);
+ // console.log(this.movieForm.value);
 
-  this.api.NewMovie(this.registerForm.value)
+  this.api.NewMovie(this.movieForm.value)
           .subscribe(res=>{
             this.toastService.success({detail:"Success",
                                       summary:"Movie  Added",duration:3000});
-            this.registerForm.reset();
+            this.movieForm.reset();
           });
 }
 
 update(){
-  this.api.updateMovie(this.registerForm.value,
+  this.api.updateMovie(this.movieForm.value,
                                 this.movieIdToUpdate).subscribe(res=>{
           this.toastService.success({detail:"Success",
             summary:"Movie Updated",duration:3000});
-      this.registerForm.reset();
+      this.movieForm.reset();
 
       this.router.navigate(['list']);
     });
@@ -84,7 +74,7 @@ update(){
 
   fillFormToUpdate(movie:Movie){
 
-    this.registerForm.setValue({
+    this.movieForm.setValue({
         name: movie.name,
         year:movie.year,
         director:movie.director
